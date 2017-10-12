@@ -1,0 +1,4 @@
+﻿State 1:
+- Fix
+Change:drivers.Where(d => driver.name.Equals(d.Name, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+To: drivers.Where(d => driver.id.Equals(d.DriverId)).FirstOrDefault();
