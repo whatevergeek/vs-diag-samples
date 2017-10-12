@@ -67,7 +67,7 @@ public class HomeController : Controller
     private List<Driver> initializeList()
     {
         //ToDo setup code to initalize list to return new List<Driver>()
-        return null;
+        return new List<MyShuttle.Client.Core.DocumentResponse.Driver>();
     }
 
     private List<Driver> SortDriverListBySettings(List<Driver> allDrivers)
@@ -80,7 +80,7 @@ public class HomeController : Controller
     private List<Driver> OrderList(List<Driver> listToOrder)
     {
         List<Driver> orderedDriverList = initializeList();
-        listToOrder.OrderBy(d => d.Name).ToList();
+        orderedDriverList = listToOrder.OrderBy(d => d.Name).ToList();
         return orderedDriverList;
     }
 
@@ -139,7 +139,7 @@ public class HomeController : Controller
         try
         {
             selectedDriver =
-            drivers.Where(d => driver.name.Equals(d.Name, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            drivers.Where(d => driver.id.Equals(d.DriverId)).FirstOrDefault();
         }
         catch (Exception)
         {
@@ -195,13 +195,13 @@ public class HomeController : Controller
             if (cacheResponse)
             {
                 m_cachedResponse = driversStr;
-                //m_cachedDrivers = JsonConvert.DeserializeObject<List<Driver>>(driversStr);
+                m_cachedDrivers = JsonConvert.DeserializeObject<List<Driver>>(driversStr);
             }
         }
 
-        //return m_cachedDrivers;
-        var drivers = JsonConvert.DeserializeObject<List<Driver>>(driversStr);
-        return drivers;
+        return m_cachedDrivers;
+        //var drivers = JsonConvert.DeserializeObject<List<Driver>>(driversStr);
+        //return drivers;
     }
 
 
