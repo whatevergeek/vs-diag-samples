@@ -14,9 +14,11 @@
             <h2>Vehicles</h2>
         </div>
         <progress data-bind="style: { display: vehicleProgressDisplay }"></progress>
-        <div data-bind="foreach: vehicles">
+        <div style="overflow:scroll; height:400px;">
+            <div data-bind="foreach: vehicles">
                 <div class="row">
                     <h4>
+                        <span>x</span>
                         <span data-bind="text: Make"></span>
                         <span data-bind="text: Model"></span>
                         <input class="btn btn-default" data-bind="click: $root.driverClicked" type="button" value="Select" />
@@ -27,6 +29,7 @@
                 </div>
                 <div class="spacer">
                 </div>
+            </div>
         </div>
     </div>
     <div class="col-md-6"></div>
