@@ -195,13 +195,13 @@ public class HomeController : Controller
             if (cacheResponse)
             {
                 m_cachedResponse = driversStr;
-                //m_cachedDrivers = JsonConvert.DeserializeObject<List<Driver>>(driversStr);
+                m_cachedDrivers = JsonConvert.DeserializeObject<List<Driver>>(driversStr);
             }
         }
 
-        //return m_cachedDrivers;
-        var drivers = JsonConvert.DeserializeObject<List<Driver>>(driversStr);
-        return drivers;
+        return m_cachedDrivers;
+        //var drivers = JsonConvert.DeserializeObject<List<Driver>>(driversStr);
+        //return drivers;
     }
 
 
