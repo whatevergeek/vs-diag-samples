@@ -66,8 +66,7 @@ public class HomeController : Controller
 
     private List<Driver> initializeList()
     {
-        //ToDo setup code to initalize list to return new List<Driver>()
-        return null;
+        return new List<Driver>();
     }
 
     private List<Driver> SortDriverListBySettings(List<Driver> allDrivers)
@@ -80,7 +79,7 @@ public class HomeController : Controller
     private List<Driver> OrderList(List<Driver> listToOrder)
     {
         List<Driver> orderedDriverList = initializeList();
-        listToOrder.OrderBy(d => d.Name).ToList();
+        orderedDriverList = listToOrder.OrderBy(d => d.Name).ToList();
         return orderedDriverList;
     }
 
