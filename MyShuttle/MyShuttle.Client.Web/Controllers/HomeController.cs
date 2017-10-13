@@ -139,7 +139,7 @@ public class HomeController : Controller
         try
         {
             selectedDriver =
-            drivers.Where(d => driver.name.Equals(d.Name, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            drivers.Where(d => driver.id.Equals(d.DriverId)).FirstOrDefault();
         }
         catch (Exception)
         {
